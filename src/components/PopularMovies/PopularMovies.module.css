@@ -1,0 +1,19 @@
+
+.cardsTab{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 3rem;
+}
+
+.movieCard {
+  height: 600px;
+}
+
+.title {
+  text-overflow: ellipsis
+}
+
+.overwiew {
+  height: 130px;
+  overflow: hidden;
+}

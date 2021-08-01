@@ -1,26 +1,29 @@
 import './App.css';
-import { Layout, Menu, Button} from 'antd';
-import { movieAPI } from './api/api';
+import { Layout} from 'antd';
+import { connect, Provider } from 'react-redux';
+import { HashRouter, withRouter, Route } from 'react-router-dom';
+import store from './redux/redux-store';
+import PopularMoviesContainer from './components/PopularMovies/PopularMoviesContainer';
+import AppHeader from './components/AppHeader/AppHeader'
+import { compose } from 'redux';
+import AboutMovieContainer from './components/AboutMovie/AboutMovieContainer';
+import SearchContainer from './components/Search/SearchContainer';
+import Welcome from './components/Welcome/Welcome';
 
-const { Header, Content, Footer } = Layout;
+const {Content, Footer } = Layout;
 
 
-function App() {
+const App = (props) => {
   return (
     <div>
       <Layout className="layout">
-        <Header>
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            {new Array(3).fill(null).map((_, index) => {
-              const key = index + 1;
-              return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
-            })}
-          </Menu>
-        </Header>
+          <AppHeader />
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
-            <Button onClick={movieAPI.getPopular}>getFilms</Button>
+          <Route path='/top20' render={() => <PopularMoviesContainer />} />
+          <Route path='/movie/:id?' render={() => <AboutMovieContainer />} />
+          <Route path='/search' render={() => <SearchContainer />} />
+          <Route exact path='/' render={() => <Welcome />} />
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Top 20 movies</Footer>
@@ -29,4 +32,16 @@ function App() {
   );
 }
 
-export default App;
+
+const AppContainer = compose(withRouter, connect(null, null))(App)
+
+const TopMoviesApp = (props) => {
+  return <HashRouter>
+    <Provider store={store} >
+      <AppContainer />
+    </Provider>
+  </HashRouter>
+}
+
+export default TopMoviesApp
+
