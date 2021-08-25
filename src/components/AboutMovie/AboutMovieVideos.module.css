@@ -1,0 +1,8 @@
+.videosTab{
+  display: block;
+  max-width: 430px;
+}
+
+.videoCard {
+  margin-top: 20px;
+}

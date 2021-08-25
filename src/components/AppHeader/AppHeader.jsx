@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import { Header } from 'antd/lib/layout/layout';
 import { compose } from 'redux';
 
-
 const AppHeader = ({ location }) => {
 
 
@@ -20,7 +19,7 @@ const AppHeader = ({ location }) => {
 
   return <div>
     <Header>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={selectedKey(location.pathname)}>
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={selectedKey(location.pathname)} >
         <Menu.Item key={1} >
           <Link to='/'>Home</Link>
         </Menu.Item>

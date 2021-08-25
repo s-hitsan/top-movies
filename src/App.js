@@ -18,7 +18,7 @@ const App = (props) => {
     <div>
       <Layout className="layout">
           <AppHeader />
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{ padding: '0 5px' }}>
           <div className="site-layout-content">
           <Route path='/top20' render={() => <PopularMoviesContainer />} />
           <Route path='/movie/:id?' render={() => <AboutMovieContainer />} />

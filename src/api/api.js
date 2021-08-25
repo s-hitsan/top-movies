@@ -19,5 +19,9 @@ export const moviesAPI = {
   async getSearch(query) {
     let data = await instance.get(`search/movie?query=${query}`)
     return data
+  },
+  async getVideos(id) {
+    let data = await instance.get(`movie/${id}/videos`)
+    return data
   }
 }

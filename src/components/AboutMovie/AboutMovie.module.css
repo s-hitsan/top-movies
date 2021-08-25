@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 .movieCard {
   margin-bottom: 10px;
 }
@@ -11,14 +10,6 @@
   text-overflow: ellipsis
 }
 
-.contentStyle{
-  height: 650px;
-  color: #fff;
-  line-height: 160px;
-  text-align: center;
-  background: #001529;
-}
-
-.contentStyle img{
-margin-top: 20px;
+.movieOverwiew {
+  max-width: 1000px;
 }
