@@ -6,7 +6,7 @@ import { AboutMovieVideos } from './AboutMovieVideos';
 const AboutMovie = ({ movie, videos }) => {
 
   return <div>
-    <Card title={movie.title}>
+      <h2><b>{movie.title}</b></h2>
       <Card size="small" style={{ width: 300 }} className={s.movieCard} >
         <div >
           <Image preview src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={'#'} />
@@ -28,12 +28,11 @@ const AboutMovie = ({ movie, videos }) => {
       `}</p>
       <p>IMDBd : <Button href={`https://www.imdb.com/title/${movie.imdb_id}`}>ID {movie.imdb_id}</Button> </p>
       <p>Release date : {movie.release_date}</p>
-      <p>Runtime : {movie.runtime} min.</p>
-      {movie.homepage ? <p>Home Page : <Button href={movie.homepage}>{movie.homepage}</Button> </p> : null}
+      {movie.runtime === 0 ? null : <p>Runtime : {movie.runtime} min.</p>}
+      {movie.homepage ? <Button href={movie.homepage}>Home Page</Button> : null}
       <div >
         {videos[0] ? <AboutMovieVideos videos={videos} /> : null}
       </div>
-    </Card>
   </div>
 }
 
